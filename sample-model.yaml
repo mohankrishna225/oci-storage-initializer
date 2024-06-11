@@ -1,0 +1,20 @@
+apiVersion: "serving.kserve.io/v1beta1"
+kind: "InferenceService"
+metadata:
+  name: "sklearn-iris-oci"
+spec:
+  predictor:
+
+    model:
+      modelFormat:
+        name: sklearn
+      storageUri: "oci-artifact://registry-1.docker.io/cledge/iris-model:v1"
+      env:
+        - name  : ORAS_USER
+          value : ""
+        - name  : ORAS_PASS
+          value : ""
+
+#        user = os.getenv("ORAS_USER")
+#        password = os.getenv("ORAS_PASS")
+
